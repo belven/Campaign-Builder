@@ -9,18 +9,31 @@ UCLASS(hidecategories = ("Rendering", "Replication", "Collision", "HLOD", "World
 class CAMPAIGNBUILDER_API AHexTile : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	AHexTile();
 
 	UFUNCTION(BlueprintCallable)
 		void AddComponentInstance(UActorComponent* comp);
+	int GetTileID() const;
 
 	UPROPERTY()
 		UInstancedStaticMeshComponent* meshComp;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tile Data")
+		int32 tileID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Allowed Data")
+		bool canHaveQuests;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Allowed Data")
+		bool canHaveItems;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Allowed Data")
+		bool canHaveEntities;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh")
-		UMaterial* material;	
+		UMaterial* material;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh")
 		UStaticMesh* mesh;

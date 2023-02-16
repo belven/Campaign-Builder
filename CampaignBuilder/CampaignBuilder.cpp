@@ -4,18 +4,15 @@
 
 #include "Details/QuestDetails.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE(FQuestEditorModule, CampaignBuilder, "CampaignBuilder");
-
-//IMPLEMENT_GAME_MODULE(FQuestEditorModule, QuestModule);
+IMPLEMENT_PRIMARY_GAME_MODULE(FCampaginEditorModule, CampaignBuilder, "CampaignBuilder");
 
 DEFINE_LOG_CATEGORY(LogCampaignBuilder)
 
 
-void FQuestEditorModule::StartupModule()
+void FCampaginEditorModule::StartupModule()
 {
     auto& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
-
-    // Register our customization to be used by a class 'UMyClass' or 'AMyClass'. Note the prefix must be dropped.
+    
     PropertyModule.RegisterCustomClassLayout(
         "HexTile",
         FOnGetDetailCustomizationInstance::CreateStatic(&FQuestDetails::MakeInstance)
@@ -25,4 +22,4 @@ void FQuestEditorModule::StartupModule()
 
 }
 
-void FQuestEditorModule::ShutdownModule() {}
+void FCampaginEditorModule::ShutdownModule() {}

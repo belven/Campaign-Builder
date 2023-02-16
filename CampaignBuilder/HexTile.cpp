@@ -4,6 +4,8 @@
 
 AHexTile::AHexTile()
 {
+	canHaveQuests = true;
+
 	const ConstructorHelpers::FObjectFinder<UStaticMesh> tileMesh(TEXT("StaticMesh'/Game/TopDown/Models/hexagon_Circle.hexagon_Circle'"));
 	if (tileMesh.Succeeded())
 	{
@@ -23,6 +25,11 @@ void AHexTile::AddComponentInstance(UActorComponent* comp)
 		AddInstanceComponent(comp);
 		comp->RegisterComponent();
 	}
+}
+
+int AHexTile::GetTileID() const
+{
+	return tileID;
 }
 
 void AHexTile::OnConstruction(const FTransform& Transform)

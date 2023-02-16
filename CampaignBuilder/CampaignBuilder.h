@@ -7,7 +7,7 @@
 
 DECLARE_LOG_CATEGORY_EXTERN(LogCampaignBuilder, Log, All);
 
-class FQuestEditorModule : public IModuleInterface
+class FCampaginEditorModule : public IModuleInterface
 {
 public:
 	virtual void StartupModule() override;
